@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Passing Url String to Html</title>
+</head>
+
+<body>
+
+    <div id="nama"></div>
+    <div id="alamat"></div>
+
+
+    <script>
+        window.onload = function () {
+            try {
+                var url_string = (window.location.href);
+                var url = new URL(url_string);
+                var nama = url.searchParams.get("nama");
+                var alamat = url.searchParams.get("alamat");
+                // var size = url.searchParams.get("size");
+                console.log(url);
+                document.getElementById("nama").innerHTML = nama
+                document.getElementById("alamat").innerHTML = alamat
+            } catch (err) {
+                console.log("Issues with Parsing URL Parameter's - " + err);
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
